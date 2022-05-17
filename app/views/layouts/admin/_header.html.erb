@@ -1,0 +1,31 @@
+<header>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/"><span>Nagano Cake</span></a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavDropdown">
+        <ul class="navbar-nav ml-auto">
+        <% if admin_signed_in? %>
+        <%= link_to "商品一覧"  %>
+        <%= link_to "会員一覧"  %>
+        <%= link_to "注文履歴一覧" %>
+        <%= link_to "ジャンル一覧" %>
+        <%= link_to "ログアウト" %>
+
+        <% else %>
+        <%= link_to "About" %>
+        <%= link_to "商品一覧" %>
+        <%= link_to "新規登録" %>
+        <%= link_to "ログイン" %>
+
+        <% end %>
+
+        <i class="fas fa-search"></i>
+
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
