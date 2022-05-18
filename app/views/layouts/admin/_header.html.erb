@@ -15,14 +15,19 @@
         <%= link_to "ログアウト" %>
 
         <% else %>
-        <%= link_to "About" %>
+        <%= link_to "About", about_path, class: 'nav-link %>
         <%= link_to "商品一覧" %>
         <%= link_to "新規登録" %>
         <%= link_to "ログイン" %>
 
         <% end %>
 
-        <i class="fas fa-search"></i>
+      <div>
+        <form class="form-inline ml-auto">
+          <input type="text" class="form-control" placeholder="Search">
+          <button type="submit" class="btn btn-info">検索</button>
+        </form>
+      </div>
 
         </ul>
       </div>
