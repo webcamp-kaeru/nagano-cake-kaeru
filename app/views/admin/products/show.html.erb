@@ -20,7 +20,7 @@
         </tr>
         <tr>
           <th>ジャンル</th>
-          <th><%= @product.genre_id %></th>
+          <th><%= @product.genre.name %></th>
         </tr>
         <tr>
           <th>
@@ -28,21 +28,16 @@
             （税抜価格）
           </th>
           <th>
-            <%= @product.sum_of_order_price %>（<%= @product.price %>）
+            <%= @product.sum_of_order_price %>（<%= @product.price %>）円
           </th>
         </tr>
         <tr>
           <th>販売ステータス</th>
-          <th><%= sales_status %></th>
-        </tr>
-        <tr>
-          <%= link_to edit_admin_product_path, class: "btn btn-outline-secondary btn-block" %>
-
+          <th><%= @product.sales_status ? '販売中' : '販売停止中' %></th>
         </tr>
 
       </table>
-
+      <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-outline-secondary btn-block" %>
     </div>
-
   </div>
 </div>
