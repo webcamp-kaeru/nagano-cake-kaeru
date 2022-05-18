@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_05_18_043851) do
+ActiveRecord::Schema.define(version: 2022_05_18_083232) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -76,6 +76,29 @@ ActiveRecord::Schema.define(version: 2022_05_18_043851) do
     t.string "phone_number"
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
+  end
+
+  create_table "order_products", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+    t.integer "quantity"
+    t.integer "price"
+    t.integer "product_status"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "member_id"
+    t.integer "shipping"
+    t.string "shipping_postal_code"
+    t.string "shipping_address"
+    t.string "shipping_name"
+    t.integer "payment_method"
+    t.integer "order_status"
+    t.integer "billing_amount"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "products", force: :cascade do |t|
