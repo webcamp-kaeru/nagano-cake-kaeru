@@ -1,6 +1,8 @@
 class Product < ApplicationRecord
 
   belongs_to :genre
+  has_many :order_products, dependent: :des
+  
   has_one_attached :product_image
 
   def sum_of_order_price
