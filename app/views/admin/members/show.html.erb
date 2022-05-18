@@ -32,7 +32,5 @@
   <td><%= @member.is_deleted %></td>
 </tr>
 
-<%= link_to "編集する",  edit_admin_member_path(@member) do %>
-<% end %>
-<%= link_to "注文履歴一覧を見る", index_order_admin_member_path(@member.id) do %>
-<% end %>
+<%= link_to "編集する",  edit_admin_member_path(@member) %>
+<%= link_to "注文履歴一覧を見る", admin_root_path %>
