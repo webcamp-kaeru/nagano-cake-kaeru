@@ -2,13 +2,15 @@ class Admin::ProductsController < ApplicationController
   layout 'admin/application'
 
   def show
+    @product = Product.find(params[:id])
+    
   end
 
   def index
+     @products = Product.page(params[:page])
   end
 
   def new
-    @products = Product.all
   end
 
   def create

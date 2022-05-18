@@ -15,7 +15,7 @@
     <% @products.each do |product| %>
     <tr>
       <td><%= product.id %></td>
-      <td><%= product.name %></td>
+      <td><%= link_to product.name,product %></td>
       <td><%= product.price %></td>
       <td><%= product.genre_id %></td>
       <td><%= product.sales_status %></td>
@@ -23,3 +23,5 @@
     <% end %>
   </tbody>
 </table>
+
+<%= paginate @products %>
