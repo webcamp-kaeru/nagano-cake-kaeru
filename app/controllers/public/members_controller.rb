@@ -1,5 +1,6 @@
 class Public::MembersController < ApplicationController
   layout 'public/application'
+  
   def show
   end
 

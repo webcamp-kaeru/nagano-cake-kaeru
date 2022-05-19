@@ -23,7 +23,7 @@ Rails.application.routes.draw do
    get "members/my_page" => "members#show"
    get "members/unsubscribe" =>"members#unsubscribe"
    patch "members/withdraw" => "members#withdraw"
-   resources :delivery_address, only:[:index, :create, :edit, :update, :destroy]
+   resources :delivery_addresses, only:[:index, :create, :edit, :update, :destroy]
   end
 
 
