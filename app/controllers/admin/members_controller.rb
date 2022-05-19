@@ -2,6 +2,7 @@ class Admin::MembersController < ApplicationController
    layout 'admin/application'
 
   def index
+    @members = Member.page(params[:page])
   end
 
   def show
@@ -20,5 +21,10 @@ class Admin::MembersController < ApplicationController
     else
       render :edit
     end
+  end
+
+  private
+  def member_params
+     params.require(:member).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :is_deleted, :postal_code, :address, :phone_number)
   end
 end
