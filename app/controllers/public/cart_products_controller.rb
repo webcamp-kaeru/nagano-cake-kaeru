@@ -1,6 +1,7 @@
 class Public::CartProductsController < ApplicationController
   layout 'public/application'
   def index
+    @cart_product = CartProduct.new
   end
 
   def create
