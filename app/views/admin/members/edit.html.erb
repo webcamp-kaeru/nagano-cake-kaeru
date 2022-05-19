@@ -1,5 +1,7 @@
-<%= @member.last_name %><%= @member.first_name %>さんの会員情報編集
+<h1><%= @member.last_name %><%= @member.first_name %>さんの会員情報編集</h1>
+
 <%= form_with model:@member, url: admin_member_path(@member.id), method: :patch do |f| %>
+<table>
 <tr>
  <th>会員ID</th>
  <td><%= @member.id %></td>
@@ -30,8 +32,14 @@
 </tr>
 <tr>
   <th>会員ステータス</th>
-  <td></td>
+  <td>
+    <%= f.radio_button :is_deleted, false %>
+    <%= f.label :is_deleted, "有効", value: false %>
+    <%= f.radio_button :is_deleted, true %>
+    <%= f.label :is_deleted, "退会", value: true %>
+  </td>
 </tr>
-
+</table>
 <%= f.submit "変更を保存" %>
+
 <% end %>
