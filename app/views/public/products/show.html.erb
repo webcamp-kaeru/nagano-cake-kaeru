@@ -1,2 +1,39 @@
-<h1>Public::Products#show</h1>
-<p>Find me in app/views/public/products/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+      <h3>ジャンル検索</h3>
+      <table>
+        <% @genres.each do |genre| %>
+         <tr>
+           <td><%= link_to genre.name %></td>
+         </tr>
+        <% end %>
+      </table>
+    </div>
+
+    <div class="col-md-4">
+      <%= image_tag @product.product_image %>
+    </div>
+
+    <div class="col-md-5">
+      <table>
+        <tr>
+          <td><%= @product.name %></td>
+        </tr>
+        <tr>
+          <td><%= @product.text %></td>
+        </tr>
+        <tr>
+          <td></td>
+        </tr>
+        <tr>
+           <td>￥<%= @product.sum_of_order_price %>（税込）</td>
+        </tr>
+        <tr>
+          <td>個数選択（仮）</td>
+          <td>カートに入れる（仮）</td>
+        </tr>
+      </table>
+    </div>
+  </div>
+</div>
