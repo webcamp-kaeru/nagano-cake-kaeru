@@ -6,24 +6,27 @@ class Public::OrdersController < ApplicationController
   end
 
   def create
+    @order = Order.new(order_params)
+    binding.pry
   end
 
   def confirm
     @order = Order.new(order_params)
+    if params[:order][:select_address] == "1"
+      # ご自身の住所
+      @order.shipping_postal_code = current_member.postal_code
+      @order.shipping_address = current_member.address
+      @order.shipping_name = current_member.last_name + current_member.first_name
+    elsif params[:order][:select_address] == "2"
+      # 登録済住所
+      @address = DeliveryAddress.find(params[:order][:address_id])
+      @order.shipping_postal_code = @address.postal_code
+      @order.shipping_address = @address.address
+      @order.shipping_name = @address.shipping_name
+    end
+    @order.shipping = 800
+    # @order.billing_amount =
 
-    # ご自身の住所
-    # @order.shipping_postal_code = current_member.postal_code
-    # @order.shipping_address = current_member.address
-    # @order.shipping_name = current_member.last_name + current_member.first_name
-
-    # 登録済住所
-    @address = DeliveryAddress.find(params[:order][:address_id])
-    @order.shipping_postal_code = @address.postal_code
-    @order.shipping_address = @address.address
-    @order.shipping_name = @address.shipping_name
-
-    # 新しい住所
-    binding.pry
   end
 
   def thanks
@@ -38,6 +41,6 @@ class Public::OrdersController < ApplicationController
   private
 
   def order_params
-    params.require(:order).permit(:payment_method, :shipping_postal_code, :shipping_address, :shipping_name)
+    params.require(:order).permit(:member_id, :shipping, :shipping_postal_code, :shipping_address, :shipping_name, :payment_method, :order_status, :billing_amount)
   end
 end
