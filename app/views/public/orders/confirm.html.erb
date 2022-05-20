@@ -14,7 +14,7 @@
         <%= image_tag order_product.product.product_image %>
         <%= order_product.product.name %>
       </td>
-      <td>単価（仮）</td>
+      <td><%= order_product.product.sum_of_order_price %></td>
       <td><%= order_product.quantity %></td>
       <td><%= order_product.price %></td>
       <% end %>
@@ -33,7 +33,7 @@
       <td></td>
     </tr>
       <td>請求金額</td>
-      <td></td>
+      <td><%= @order.billing_amount </td>
   </table>
 </div>
 
