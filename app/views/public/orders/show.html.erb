@@ -55,7 +55,7 @@
           <% @order_products.each do |order_product| %>
             <tr>
               <td><%= @order.order_product.product.name %></td>
-              <td><%= @order.order_product.product.price %></td>
+              <td><%= @order.order_product.product.sum_of_order_price %></td>
               <td><%= @order.order_product.quantity %></td>
               <td><%= @order.order_product.quantity_price %></td>
             </tr>

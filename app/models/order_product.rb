@@ -4,7 +4,7 @@ class OrderProduct < ApplicationRecord
   belongs_to :product
 
     def quantity_price
-      (price * quantity).round
+      (product.sum_of_order_price * quantity).round
     end
 
 end
