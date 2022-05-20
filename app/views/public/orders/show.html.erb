@@ -28,11 +28,11 @@
       <h4>請求情報</h4>
       <tr>
         <td>商品合計</td>
-        <td><%~ @order.sum_of_order_price %></td>
+        <td><%= @order.sum_of_order_price %></td>
       </tr>
       <tr>
         <td>配送料</td>
-        <td>800</td>
+        <td><%= @order.shipping %></td>
       </tr>
       <tr>
         <th>ご請求額</th>
