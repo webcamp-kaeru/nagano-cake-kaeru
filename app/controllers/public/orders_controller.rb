@@ -27,6 +27,8 @@ class Public::OrdersController < ApplicationController
     @order.shipping = 800
     # @order.billing_amount =
 
+    @order_products = current_member.order_products
+
   end
 
   def thanks

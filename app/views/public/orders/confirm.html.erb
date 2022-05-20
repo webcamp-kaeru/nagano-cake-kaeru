@@ -9,7 +9,15 @@
       <td>小計</td>
     </tr>
     <tr>
-      <td></td>
+      <% @order_products.each do |order_product| %>
+      <td>
+        <%= image_tag order_product.product.product_image %>
+        <%= order_product.product.name %>
+      </td>
+      <td>単価（仮）</td>
+      <td><%= order_product.quantity %></td>
+      <td><%= order_product.price %></td>
+      <% end %>
     </tr>
   </table>
 </div>
