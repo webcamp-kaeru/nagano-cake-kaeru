@@ -9,14 +9,14 @@
       <td>小計</td>
     </tr>
     <tr>
-      <% @order_products.each do |order_product| %>
+      <% @cart_products.each do |cart_product| %>
       <td>
-        <%= image_tag order_product.product.product_image %>
-        <%= order_product.product.name %>
+        <%= image_tag cart_product.product.product_image %>
+        <%= cart_product.product.name %>
       </td>
-      <td><%= order_product.product.sum_of_order_price %></td>
-      <td><%= order_product.quantity %></td>
-      <td><%= order_product.price %></td>
+      <td><%= cart_product.product.sum_of_order_price %></td>
+      <td><%= cart_product.quantity %></td>
+      <td><%= cart_product.subtotal %></td>
       <% end %>
     </tr>
   </table>
@@ -33,7 +33,7 @@
       <td></td>
     </tr>
       <td>請求金額</td>
-      <td><%= @order.billing_amount </td>
+      <td><%= @order.billing_amount %></td>
   </table>
 </div>
 
