@@ -16,6 +16,7 @@
     </div>
 
     <div class="col-md-5">
+      <%= form_with model: @cart_product, url: cart_products_path, method: :post do |f| %>
       <table>
         <tr>
           <td><%= @product.name %></td>
@@ -29,7 +30,6 @@
         <tr>
            <td>￥<%= @product.sum_of_order_price %>（税込）</td>
         </tr>
-        <%= form_with model: @cart_product, url: cart_products_path, method: :post do |f| %>
         <%= f.hidden_field :product_id, :value => @product.id %>
         <tr>
           <td><%= f.select :quantity , *[1..10], { include_blank: "個数選択" } %></td>
@@ -37,8 +37,8 @@
             <%= f.submit "カートに入れる" %>
           </td>
         </tr>
-        <% end %>
       </table>
+      <% end %>
     </div>
   </div>
 </div>
