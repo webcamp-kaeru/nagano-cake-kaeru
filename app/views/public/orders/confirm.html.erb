@@ -8,8 +8,8 @@
       <td>数量</td>
       <td>小計</td>
     </tr>
+    <% @cart_products.each do |cart_product| %>
     <tr>
-      <% @cart_products.each do |cart_product| %>
       <td>
         <%= image_tag cart_product.product.product_image %>
         <%= cart_product.product.name %>
@@ -17,9 +17,9 @@
       <td><%= cart_product.product.sum_of_order_price %></td>
       <td><%= cart_product.quantity %></td>
       <td><%= cart_product.subtotal %></td>
-      <% @total_price = @totalprice + cart_product.subtotal %>
-      <% end %>
+      <% @total_price = @total_price + cart_product.subtotal %>
     </tr>
+    <% end %>
   </table>
 </div>
 
@@ -34,7 +34,7 @@
       <td> <%= @total_price %></td>
     </tr>
       <td>請求金額</td>
-      <td><%= @order.billing_amount %></td>
+      <td><%= @billing_amount = @total_price + @order.shipping %></td>
   </table>
 </div>
 
@@ -61,7 +61,7 @@
   <%= f.hidden_field :shipping_address %>
   <%= f.hidden_field :shipping_name %>
   <%= f.hidden_field :payment_method %>
-  <%= f.hidden_field :order_status, value: 0 %>
-  <%= f.hidden_field :billing_amount %>
+  <%= f.hidden_field :order_status, value: Order.order_statuses.key(0) %>
+  <%= f.hidden_field :billing_amount, value:  @billing_amount %>
   <%= f.submit "注文を確定する" %>
 <% end %>

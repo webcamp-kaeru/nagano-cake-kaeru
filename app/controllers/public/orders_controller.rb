@@ -7,7 +7,6 @@ class Public::OrdersController < ApplicationController
 
   def create
     @order = Order.new(order_params)
-    binding.pry
 
     if @order.save
 
@@ -18,7 +17,7 @@ class Public::OrdersController < ApplicationController
         order_product.product_id = cart_product.product_id
         order_product.quantity = cart_product.quantity
         order_product.price = cart_product.product.sum_of_order_price
-        order_product.production_status = 0
+        order_product.production_status = OrderProduct.production_statuses.key(0)
         order_product.save
       end
       redirect_to orders_thanks_path
@@ -44,7 +43,7 @@ class Public::OrdersController < ApplicationController
     end
     @order.shipping = 800
     @cart_products = current_member.cart_products
-    @order.billing_amount = @total_price + @order.shipping
+    @billing_amount = 0
 
   end
 
