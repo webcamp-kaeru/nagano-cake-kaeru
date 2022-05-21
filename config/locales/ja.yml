@@ -11,7 +11,7 @@ ja:
         preparing_ship: "発送準備中"
         sent: "発送済み"
     order_product:
-      production_status:
+      product_status:
         impossible_manufacture: "製作不可"
         waiting_manufacture: "製作待ち"
         manufacturing: "製作中"
