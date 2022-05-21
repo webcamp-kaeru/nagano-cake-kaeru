@@ -8,9 +8,29 @@ class Public::OrdersController < ApplicationController
   def create
     @order = Order.new(order_params)
     binding.pry
+
+    if @order.save
+
+      @cart_products = current_member.cart_products
+      @cart_products.each do |cart_product|
+        order_product = OrderProduct.new
+        order_product.order_id = @order.id
+        order_product.product_id = cart_product.product_id
+        order_product.quantity = cart_product.quantity
+        order_product.price = cart_product.product.sum_of_order_price
+        order_product.production_status = 0
+        order_product.save
+      end
+      redirect_to orders_thanks_path
+      @cart_products.destroy_all
+    else
+      @order = Order.new(order_params)
+      render :new
+    end
   end
 
   def confirm
+    @total_price = 0
     @order = Order.new(order_params)
     if params[:order][:select_address] == "1"
       @order.shipping_postal_code = current_member.postal_code
@@ -23,9 +43,8 @@ class Public::OrdersController < ApplicationController
       @order.shipping_name = @address.shipping_name
     end
     @order.shipping = 800
-    # @order.billing_amount =
-
     @cart_products = current_member.cart_products
+    @order.billing_amount = @total_price + @order.shipping
 
   end
 

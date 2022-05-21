@@ -17,6 +17,7 @@
       <td><%= cart_product.product.sum_of_order_price %></td>
       <td><%= cart_product.quantity %></td>
       <td><%= cart_product.subtotal %></td>
+      <% @total_price = @totalprice + cart_product.subtotal %>
       <% end %>
     </tr>
   </table>
@@ -30,7 +31,7 @@
     </tr>
     <tr>
       <td>商品合計</td>
-      <td></td>
+      <td> <%= @total_price %></td>
     </tr>
       <td>請求金額</td>
       <td><%= @order.billing_amount %></td>
