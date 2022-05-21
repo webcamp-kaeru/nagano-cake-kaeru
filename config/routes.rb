@@ -27,7 +27,6 @@ Rails.application.routes.draw do
    resources :delivery_addresses, only:[:index, :create, :edit, :update, :destroy]
   end
 
-
   namespace :admin do
    root to: 'homes#top'
    resources :products, only:[:index, :show, :new, :edit, :create, :update]
@@ -37,5 +36,4 @@ Rails.application.routes.draw do
      resources :order_products, only:[:update]
    end
   end
-
 end
