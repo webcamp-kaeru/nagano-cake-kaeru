@@ -49,5 +49,4 @@ class Public::DeliveryAddressesController < ApplicationController
   def delivery_address_params
     params.require(:delivery_address).permit(:postal_code, :address, :shipping_name)
   end
-
 end
