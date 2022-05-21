@@ -13,6 +13,12 @@
   <body>
     <%= render 'layouts/public/header' %>
    <main>
+     <% if flash[:notice] %>
+      <p id="notice" class="alert alert-success py-4"><%= notice %></p>
+     <% end %>
+     <% if flash[:alert] %>
+      <p id="alert" class="alert alert-danger py-4"><%= alert %></p>
+     <% end %>
      <%= yield %>
    </main>
   </body>

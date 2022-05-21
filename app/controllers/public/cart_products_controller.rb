@@ -19,10 +19,10 @@ class Public::CartProductsController < ApplicationController
   def update
     @cart_product = CartProduct.find(params[:id])
       if @cart_product.update(cart_product_params)
-        flash[:notice] = "{@cart_product.name}の数量を変更しました"
+        flash[:notice] = "商品の数量を#{@cart_product.quantity}つに変更しました"
         redirect_back fallback_location: root_path
       else
-        flash.now[:alert] = '{@cart_product.name}の数量を変更できませんでした'
+        flash[:alert] = "商品の数量を#{@cart_product.quantity}つに変更できませんでした"
         redirect_back fallback_location: root_path
       end
   end
@@ -30,10 +30,10 @@ class Public::CartProductsController < ApplicationController
   def destroy
     @cart_product = CartProduct.find(params[:id])
       if @cart_product.destroy
-        flash[:notice] = "カートから{@cart_product.name}を削除しました"
+        flash[:notice] = @cart_product.product.name + "を削除しました"
         redirect_back fallback_location: root_path
       else
-        flash.now[:alert] = 'カートから{@cart_product.name}を削除できませんでした'
+        flash.now[:alert] = @cart_product.product.name + "を削除しました"
         redirect_back fallback_location: root_path
       end
   end

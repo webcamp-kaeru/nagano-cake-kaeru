@@ -13,7 +13,7 @@ class Public::DeliveryAddressesController < ApplicationController
       flash[:notice] = "配送先を登録しました"
       redirect_back fallback_location: root_path
     else
-      flash.now[:alert] = '配送先の登録に失敗しました'
+      flash[:notice] = '配送先の登録に失敗しました'
       render :index
     end
   end
@@ -28,7 +28,7 @@ class Public::DeliveryAddressesController < ApplicationController
       flash[:notice] = "配送先を編集しました"
       redirect_to delivery_addresses_path
     else
-      flash.now[:alert] = '配送先の編集に失敗しました'
+      flash[:notice] = '配送先の編集に失敗しました'
       render :index
     end
   end
