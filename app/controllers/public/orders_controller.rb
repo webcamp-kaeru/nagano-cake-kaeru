@@ -17,7 +17,7 @@ class Public::OrdersController < ApplicationController
         order_product.product_id = cart_product.product_id
         order_product.quantity = cart_product.quantity
         order_product.price = cart_product.product.sum_of_order_price
-        order_product.production_status = OrderProduct.production_statuses.key(0)
+        order_product.product_status = OrderProduct.product_statuses.key(0)
         order_product.save
       end
       redirect_to orders_thanks_path
