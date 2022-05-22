@@ -8,6 +8,10 @@ class Product < ApplicationRecord
 
   has_one_attached :product_image
 
+  def get_product_image(width, height)
+    product_image.variant(resize_to_limit: [width, height]).processed
+  end
+
   def sum_of_order_price
     (price * 1.1).floor
   end
