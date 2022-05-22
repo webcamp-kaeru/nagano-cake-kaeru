@@ -17,8 +17,13 @@ class Admin::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
-    @product.save
-    redirect_to admin_product_path(@product)
+    if @product.save
+      flash[:notice] = "商品を登録しました"
+      redirect_to admin_product_path(@product)
+    else
+      @genres = Genre.all
+      render :new
+    end
   end
 
   def edit
@@ -28,8 +33,13 @@ class Admin::ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update(product_params)
-    redirect_to admin_product_path(@product)
+    if @product.update(product_params)
+      flash[:notice] = "商品情報を更新しました"
+      redirect_to admin_product_path(@product)
+    else
+      @genres = Genre.all
+      render :edit
+    end
   end
 
   private
