@@ -2,6 +2,7 @@
   <div class="row">
     <div class="col-md-3">
       <h3>ジャンル検索</h3>
+      <%= render 'layouts/error', obj: @cart_product %>
       <table>
         <% @genres.each do |genre| %>
          <tr>

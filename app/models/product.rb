@@ -2,8 +2,15 @@ class Product < ApplicationRecord
 
   belongs_to :genre
   has_many :order_products, dependent: :destroy
-
   has_many :cart_products, dependent: :destroy
+
+  validates :product_image,presence:true
+  validates :name,presence:true
+  validates :text,presence:true,length:{maximum:200}
+  validates :genre_id,presence:true
+  validates :price,presence:true
+  validates :sales_status,presence:true
+  validates :quantity,presence:true
 
 
   has_one_attached :product_image
