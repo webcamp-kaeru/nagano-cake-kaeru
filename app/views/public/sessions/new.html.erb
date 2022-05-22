@@ -1,9 +1,9 @@
 <h2>ログイン</h2>
-
 <div>
   <h3>会員の方はこちらからログイン</h3>
 
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+   <%= render "layouts/error", obj: resource %>
   <div class="field">
     <%= f.label :email, "メールアドレス" %><br />
     <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder: "sample@example.com" %>
