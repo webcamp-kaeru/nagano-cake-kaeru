@@ -81,8 +81,6 @@ ActiveRecord::Schema.define(version: 2022_05_21_073548) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
     t.string "last_name"
     t.string "first_name"
     t.string "last_name_kana"
@@ -91,6 +89,8 @@ ActiveRecord::Schema.define(version: 2022_05_21_073548) do
     t.string "postal_code"
     t.string "address"
     t.string "phone_number"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
     t.index ["email"], name: "index_members_on_email", unique: true
     t.index ["reset_password_token"], name: "index_members_on_reset_password_token", unique: true
   end
@@ -126,18 +126,6 @@ ActiveRecord::Schema.define(version: 2022_05_21_073548) do
     t.boolean "sales_status"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "publics", force: :cascade do |t|
-    t.string "email", default: "", null: false
-    t.string "encrypted_password", default: "", null: false
-    t.string "reset_password_token"
-    t.datetime "reset_password_sent_at"
-    t.datetime "remember_created_at"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["email"], name: "index_publics_on_email", unique: true
-    t.index ["reset_password_token"], name: "index_publics_on_reset_password_token", unique: true
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
