@@ -23,7 +23,8 @@ class Public::OrdersController < ApplicationController
       redirect_to orders_thanks_path
       @cart_products.destroy_all
     else
-      @order = Order.new(order_params)
+      
+      @delivery_addresses = current_member.delivery_addresses
       render :new
     end
   end

@@ -1,8 +1,9 @@
+<%= render 'layouts/error', obj: @order %>
 <h1>注文情報入力</h1>
 <%= form_with model: @order, local:true, url: orders_confirm_path do |f| %>
   <h2>支払い方法</h2>
   <div class="form-group">
-    <%= f.radio_button :payment_method, Order.payment_methods.key(0) %>
+    <%= f.radio_button :payment_method, Order.payment_methods.key(0), checked: true %>
     <%= f.label :payment_method, Order.payment_methods_i18n[:credit_card] %></br>
     <%= f.radio_button :payment_method,  Order.payment_methods.key(1) %>
     <%= f.label :payment_method,  Order.payment_methods_i18n[:transfer] %>
@@ -10,7 +11,7 @@
   <h2>お届け先</h2>
   <div class="form-group">
     <div>
-      <%= f.radio_button :select_address, 1 %>
+      <%= f.radio_button :select_address, 1, checked: true %>
       <%= f.label :select_address,"ご自身の住所" %></br>
       <span>〒<%= current_member.postal_code %> <%= current_member.address %></span></br>
       <%= current_member.last_name %><%= current_member.first_name %>
