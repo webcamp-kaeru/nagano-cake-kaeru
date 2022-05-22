@@ -14,7 +14,8 @@ class Public::MembersController < ApplicationController
       flash[:notice] = "会員情報を更新しました"
       redirect_to members_my_page_path
      else
-        render :edit
+      flash[:alert] = "会員情報の更新に失敗しました"
+      render :edit
      end
   end
 

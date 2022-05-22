@@ -2,6 +2,7 @@
   <h2>配送先編集</h2>
 
   <%= form_with model: @delivery_address, url: delivery_address_path(@delivery_address), method: :patch do |f| %>
+  <%= render "layouts/error", obj: @delivery_address %>
     <div>
       <%= f.label :postal_code, "郵便番号（ハイフンなし）" %>
       <%= f.text_field :postal_code %>
