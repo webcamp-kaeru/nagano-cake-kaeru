@@ -19,7 +19,7 @@
            <tr>
              <td>
                <%= link_to(product) do %>
-               <%= image_tag product.product_image %>
+               <%= image_tag product.get_product_image(300,100) %>
                <% end %>
              </td>
            </tr>
