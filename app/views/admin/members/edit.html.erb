@@ -1,7 +1,7 @@
 <h1><%= @member.last_name %><%= @member.first_name %>さんの会員情報編集</h1>
 
 <%= form_with model:@member, url: admin_member_path(@member.id), method: :patch do |f| %>
-<%= render "layouts/error", obj: @member %>
+<%= render "layouts/error" obj: f %>
 <table>
 <tr>
  <th>会員ID</th>
