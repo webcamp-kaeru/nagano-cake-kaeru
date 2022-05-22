@@ -13,7 +13,8 @@ class Public::DeliveryAddressesController < ApplicationController
       flash[:notice] = "配送先を登録しました"
       redirect_back fallback_location: root_path
     else
-      flash[:notice] = '配送先の登録に失敗しました'
+      @delivery_addresses = current_member.delivery_addresses
+      flash[:alert] = '配送先の登録に失敗しました'
       render :index
     end
   end
