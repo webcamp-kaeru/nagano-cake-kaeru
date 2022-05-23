@@ -10,7 +10,7 @@ class Product < ApplicationRecord
   validates :genre_id,presence:true
   validates :price,presence:true
   validates :sales_status,presence:true
-  validates :quantity,presence:true
+
 
 
   has_one_attached :product_image

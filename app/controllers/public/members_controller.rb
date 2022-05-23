@@ -1,4 +1,5 @@
 class Public::MembersController < ApplicationController
+  before_action :authenticate_member!
   layout 'public/application'
 
   def show
@@ -31,7 +32,7 @@ class Public::MembersController < ApplicationController
 
   private
   def member_params
-    params.require(:member).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :is_deleted, :postal_code, :address, :phone_number)
+    params.require(:member).permit(:last_name, :first_name, :last_name_kana, :first_name_kana, :is_deleted, :postal_code, :address, :phone_number, :email)
   end
 
 end
