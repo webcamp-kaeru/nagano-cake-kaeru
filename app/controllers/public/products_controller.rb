@@ -1,4 +1,5 @@
 class Public::ProductsController < ApplicationController
+  before_action :authenticate_member!, except:[:show, :index]
   layout 'public/application'
 
   def show

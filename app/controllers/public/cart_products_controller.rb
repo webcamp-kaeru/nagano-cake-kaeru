@@ -1,4 +1,5 @@
 class Public::CartProductsController < ApplicationController
+  before_action :authenticate_member!
   layout 'public/application'
 
   def index

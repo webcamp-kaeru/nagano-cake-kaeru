@@ -1,5 +1,7 @@
 class Public::OrdersController < ApplicationController
+  before_action :authenticate_member!
   layout 'public/application'
+
   def new
     @order = Order.new
     @delivery_addresses = current_member.delivery_addresses
@@ -23,7 +25,7 @@ class Public::OrdersController < ApplicationController
       redirect_to orders_thanks_path
       @cart_products.destroy_all
     else
-      
+
       @delivery_addresses = current_member.delivery_addresses
       render :new
     end
