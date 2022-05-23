@@ -19,4 +19,9 @@ class Admin::OrderProductsController < ApplicationController
       end
   end
 
+  private
+  def order_product_params
+    params.require(:order_product).permit(:product_status)
+  end
+
 end
