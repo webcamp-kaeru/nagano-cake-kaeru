@@ -2,18 +2,18 @@ class Admin::OrderProductsController < ApplicationController
   before_action :authenticate_admin!
 
   def update
-    @order_products = OrderProduct.all
+    @order = Order.find(params[:order_id])
     @order_product = OrderProduct.find(params[:id])
-    @order = @order_product.order
-
+    @order_products = @order.order_products
+    @order_product.update(order_product_params)
+    flash[:notice] = "製作ステータスを更新しました"
       if @order_product.product_status == "manufacturing"
         @order.update(order_status: "making")
-        flash[:notice] = "製作ステータスを更新しました"
-        redirect_to admin_order_path(@order)
-      elsif　@order_products.product_status == "finish"
+        redirect_back fallback_location: root_path
+      elsif
+        @order_products.count == @order_products.where(product_status: "finish").count
         @order.update(order_status: "preparing_ship")
-        flash[:notice] = "製作ステータスを更新しました"
-        redirect_to admin_order_path(@order)
+        redirect_back fallback_location: root_path
       else
         redirect_back fallback_location: root_path
       end
