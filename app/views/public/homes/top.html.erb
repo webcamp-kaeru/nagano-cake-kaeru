@@ -6,39 +6,63 @@
       <div class="image4"></div>
       <div class="image5"></div>
     </div>
-  </div>
+</div>
+
+<div class="p-3 mb-2 bg-light">
 <div class="container">
   <div class="row">
     <div class="genre-search col-3">
-      <h5 class="text-center">ジャンル検索</h5>
+      <ul class="list-group">
+       <li class="list-group-item active" aria-current="true">
+      ジャンル検索</li>
       <% @genres.each do |genre| %>
-        <ul>
-          <li><%= link_to genre.name %></li>
-        </ul>
+      <li class="list-group-item">
+        <%= link_to genre.name %></li>
       <% end %>
+      </ul>
     </div>
-    <div class="top-image-text col-6">
-      <div class="top-image"></div>
-      <p>
-        ようこそ、ようこそ、ながのCAKEへ！<br>
+
+    <div class="top-image-text col-9 text-center">
+      <div class="top-image">
+      <div class="p-3 mb-2 bg-secondary text-white">
+      <h2>
+        ようこそ、ながのCAKEへ！<br>
         このサイトは、ケーキ販売のECサイトになります。<br>
         会員でない方も商品の閲覧はできますが、<br>
         購入には会員登録が必要になります。
-      </p>
-      <h2>新着商品</h2>
+      </h2></div>
+      </div>
     </div>
   </div>
-    <div class="row">
-      <% @products.each do |product| %>
-        <div class="col-md-4 col-lg-3 offset-3">
+
+  <div class="container">
+  <div class="row">
+    <div class="col-8 text-center">
+    <h2>新着商品</h2>
+    </div>
+  </div>
+  </div>
+
+ <div class="container">
+   <div class="row justify-content-center">
+        <% @products.each do |product| %>
+        <div class="card" style="margin-right:15px;">
+          <div class="card-body" style="background-color:#FFFF00;">
           <%= link_to product_path(product) do %>
             <%= image_tag product.get_product_image(300,100) %>
-            <p><%= product.name %></p>
-            <p>¥<%= product.price %></p>
+            <p><%= product.name %></P>
+          <p>¥<%= product.price %></p>
           <% end %>
+          </div>
         </div>
-      <% end %>
-    </div>
+        <% end %>
+   </div>
+ </div>
+
+    <div class="link-text text-right">
     <%= link_to "全ての商品を見る>", products_path %>
+    </div>
+
+</div>
 </div>
 
