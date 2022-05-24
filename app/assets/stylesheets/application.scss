@@ -1,2 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@400;700&display=swap');
 @import "skippr";
-@import "public/homes"
+@import "public/homes";
+
+:root {
+  --box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+}
+
+body {
+  font-family: 'M PLUS Rounded 1c', sans-serif !important;
+}
+
+
+.navbar {
+  color: #fff !important;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 700 !important;
+}
+
+.card-effect {
+  box-shadow: var(--box-shadow);
+  background-color: #fff;
+  transition: all 0.35s ease;
+}
+
+.card-effect:hover {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.product-image-text {
+  height: auto;
+  width: 250px;
+}
+
+.product-image {
+  width: 250px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+}
