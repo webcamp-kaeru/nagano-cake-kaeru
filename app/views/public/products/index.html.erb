@@ -1,7 +1,7 @@
 <div class="container">
-  <div class="row">
+  <div class="row mt-5">
     <div class="col-md-3">
-      <h3>ジャンル検索</h3>
+      <p class="font-weight-bold m-0">ジャンル検索</p>
       <table>
         <% @genres.each do |genre| %>
          <tr>
@@ -12,29 +12,38 @@
     </div>
 
     <div class="col-md-9">
-      <h1>商品一覧（全<%= @products_count %>件）</h1>
-      <table>
-        <tbody>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 d-flex">
+            <h2 class="font-weight-bold">商品一覧</h2>
+            <p class="m-0 text-center pt-2">(全<%= @products_count %>件)</p>
+          </div>
+        </div>
+
+        <div class="row">
           <% @products.each do |product| %>
-           <tr>
-             <td>
-               <%= link_to(product) do %>
-               <%= image_tag product.get_product_image(300,100) %>
-               <% end %>
-             </td>
-           </tr>
-           <tr>
-             <td><%= product.name %></td>
-           </tr>
-           <tr>
-             <td>￥<%= product.price %></td>
-           </tr>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="card mb-3">
+                <%= link_to product_path(product) do %>
+                  <%= image_tag product.get_product_image(180,100), class: "img-fluid"%>
+                <% end %>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <%= product.name %>
+                  </li>
+                  <li class="list-group-item">
+                    <i class="fas fa-yen-sign"></i> <%= product.price %>
+                  </li>
+                </ul>
+              </div>
+            </div>
           <% end %>
-        </tbody>
-      </table>
+        </div>
+      </div>
     </div>
   </div>
 </div>
+
 
 
  <%= paginate @products %>
