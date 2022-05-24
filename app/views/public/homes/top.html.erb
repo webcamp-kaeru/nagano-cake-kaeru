@@ -47,11 +47,13 @@
    <div class="row justify-content-center">
         <% @products.each do |product| %>
         <div class="card" style="margin-right:15px;">
-          <div class="card-body" style="background-color:#FFFF00;">
+          <div class="card-body" style="background-color:#EEEEEE;">
           <%= link_to product_path(product) do %>
             <%= image_tag product.get_product_image(300,100) %>
-            <p><%= product.name %></P>
-          <p>¥<%= product.price %></p>
+            <div class="product-name ml-2">
+            <%= product.name %></div>
+            <div class="product-price mb-2 ml-2">
+            ¥<%= product.price %></div>
           <% end %>
           </div>
         </div>

@@ -1,24 +1,47 @@
-<tr>
-  <th>氏名</th>
-  <td><%= f.text_field :last_name %><%= f.text_field :first_name %></td>
-</tr>
-<tr>
-  <th>フリガナ</th>
-  <td><%= f.text_field :last_name_kana %><%= f.text_field :first_name_kana %></td>
-</tr>
-<tr>
-  <th>郵便番号</th>
-  <td><%= f.text_field :postal_code %></td>
-</tr>
-<tr>
-  <th>住所</th>
-  <td><%= f.text_field :address %></td>
-</tr>
-<tr>
-  <th>電話番号</th>
-  <td><%= f.text_field :phone_number %></td>
-</tr>
-<tr>
-  <th>メールアドレス</th>
-  <td><%= f.email_field :email %></td>
-</tr>
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label font-weight-bold">氏名</label>
+  <div class="col-lg-3">
+  <%= f.text_field :last_name ,class: "form-control mb-3"%>
+  </div>
+  <div class="col-lg-3">
+  <%= f.text_field :first_name ,class: "form-control"%>
+  </div>
+</div>
+
+<div class="form-group row">
+  <label class="col-lg-2 col-form-label font-weight-bold">フリガナ</label>
+  <div class="col-lg-3">
+  <%= f.text_field :last_name_kana ,class: "form-control mb-3"%>
+  </div>
+  <div class="col-lg-3">
+  <%= f.text_field :first_name_kana ,class: "form-control"%>
+  </div>
+</div>
+
+<div class="form-group row align-items-center">
+  <label class="col-lg-2 col-form-label font-weight-bold">郵便番号</label>
+  <div class="col-lg-3">
+  <%= f.text_field :postal_code ,class: "form-control" %>
+  </div>
+</div>
+
+<div class="form-group row align-items-center">
+  <label class="col-lg-2 col-form-label font-weight-bold">住所</label>
+  <div class="col-lg-10">
+  <%= f.text_field :address ,class: "form-control"%>
+  </div>
+</div>
+
+<div class="form-group row align-items-center">
+  <label class="col-lg-2 col-form-label font-weight-bold">電話番号</label>
+  <div class="col-lg-3">
+  <%= f.text_field :phone_number ,class: "form-control"%>
+  </div>
+</div>
+
+<div class="form-group row align-items-center">
+  <label class="col-lg-2 col-form-label font-weight-bold">メールアドレス</label>
+  <div class="col-lg-8">
+  <%= f.email_field :email ,class: "form-control"%>
+  </div>
+</div>
