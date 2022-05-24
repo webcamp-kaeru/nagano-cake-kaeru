@@ -1,43 +1,55 @@
 <div class="container">
   <div class="row mt-5">
-    <div class="col-md-3">
-      <p class="font-weight-bold m-0">ジャンル検索</p>
-      <table>
-        <% @genres.each do |genre| %>
-         <tr>
-           <th><%= link_to genre.name %></th>
-         </tr>
-        <% end %>
-      </table>
+    <div class="col-md-2 d-flex justify-content-center mb-3">
+      <div class="dropdown">
+        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ジャンル検索
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <% @genres.each do |genre| %>
+            <button class="dropdown-item text-dark" type="button">
+              <%= link_to genre.name, products_path, class: "text-dark" %>
+            </button>
+          <% end %>
+        </div>
+      </div>
     </div>
 
-    <div class="col-md-9">
+    <div class="col-md-10">
       <div class="container">
         <div class="row">
-          <div class="col-md-4 d-flex">
-            <h2 class="font-weight-bold">商品一覧</h2>
+          <div class="col-12 d-flex justify-content-center mb-5">
+            <h2>商品一覧</h2>
             <p class="m-0 text-center pt-2">(全<%= @products_count %>件)</p>
           </div>
         </div>
 
-        <div class="row">
+        <div class="row d-flex flex-wrap">
           <% @products.each do |product| %>
-            <div class="col-lg-3 col-md-4 col-sm-6">
-              <div class="card mb-3">
-                <%= link_to product_path(product) do %>
-                  <%= image_tag product.get_product_image(180,100), class: "img-fluid"%>
-                <% end %>
-                <ul class="list-group list-group-flush">
-                  <li class="list-group-item">
-                    <%= product.name %>
-                  </li>
-                  <li class="list-group-item">
-                    <i class="fas fa-yen-sign"></i> <%= product.price %>
-                  </li>
-                </ul>
+            <div class="col-lg-4 col-sm-6 mb-3">
+              <div class="product-image-text card-effect mx-auto">
+                <div class="product-image-box">
+                  <%= link_to product_path(product) do %>
+                    <%= image_tag product.product_image, class: "product-image" %>
+                  <% end %>
+                </div>
+                <div class="product-name ml-2">
+                  <label>商品名:</label>
+                  <%= product.name %>
+                </div>
+                <div class="product-price mb-2 ml-2">
+                  <label>¥</label>
+                  <%= product.price %>
+                </div>
               </div>
             </div>
           <% end %>
+        </div>
+
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center">
+            <%= paginate @products %>
+          </div>
         </div>
       </div>
     </div>
@@ -46,4 +58,4 @@
 
 
 
- <%= paginate @products %>
+
