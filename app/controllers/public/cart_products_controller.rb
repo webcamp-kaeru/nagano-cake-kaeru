@@ -11,11 +11,18 @@ class Public::CartProductsController < ApplicationController
   def create
     @cart_product = CartProduct.new(cart_product_params)
     @cart_product.member_id = current_member.id
-    if @cart_product.save
+    if current_member.cart_products.find_by(product_id: params[:cart_product][:product_id]).present?
+      cart_product = current_member.cart_products.find_by(product_id: params[:cart_product][:product_id])
+      cart_product.quantity += params[:cart_product][:quantity].to_i
+      cart_product.save
+      flash[:notice] = "カートに追加されました"
+      redirect_to cart_products_path
+    elsif @cart_product.save
+      flash[:notice] = "新しく商品がカートに追加されました"
       redirect_to cart_products_path
     else
       flash[:alert] = "個数を選択してください"
-      redirect_back fallback_location: root_path
+      redirect_to cart_products_path
     end
   end
 
