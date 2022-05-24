@@ -27,17 +27,16 @@
         <div class="row d-flex flex-wrap">
           <% @products.each do |product| %>
             <div class="col-lg-4 col-sm-6 mb-3">
-              <div class="product-image-text card-effect mx-auto">
+              <div class="product-image-text card-effect mx-auto text-center">
                 <div class="product-image-box">
                   <%= link_to product_path(product) do %>
                     <%= image_tag product.product_image, class: "product-image" %>
                   <% end %>
                 </div>
-                <div class="product-name ml-2">
-                  <label>商品名:</label>
+                <div class="product-name my-2">
                   <%= product.name %>
                 </div>
-                <div class="product-price mb-2 ml-2">
+                <div class="product-price">
                   <label>¥</label>
                   <%= product.price %>
                 </div>
@@ -51,6 +50,7 @@
             <%= paginate @products %>
           </div>
         </div>
+        
       </div>
     </div>
   </div>
