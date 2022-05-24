@@ -12,33 +12,38 @@
     </div>
 
     <div class="col-md-9">
-      <div class="d-flex align-items-center">
-        <h2 class="font-weight-bold">商品一覧</h2>
-        <p class="m-0">(全<%= @products_count %>件)</p>
-      </div>
-
-      <div class="row">
-        <div class="col-lg-3 col-md-4 col-sm-6">
-          <div class="product card-effect">
-            <% @products.each do |product| %>
-              <div class="product-image">
-                <%= link_to(product) do %>
-                  <%= image_tag product.get_product_image(300,100) %>
-                <% end %>
-              </div>
-              <div class="product-name font-weight-bold">
-                <%= product.name %>
-              </div>
-              <div class="product-price font-weight-bold">
-                <%= product.price %>
-              </div>
-            <% end %>
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4 d-flex">
+            <h2 class="font-weight-bold">商品一覧</h2>
+            <p class="m-0 text-center pt-2">(全<%= @products_count %>件)</p>
           </div>
+        </div>
+
+        <div class="row">
+          <% @products.each do |product| %>
+            <div class="col-lg-3 col-md-4 col-sm-6">
+              <div class="card mb-3">
+                <%= link_to product_path(product) do %>
+                  <%= image_tag product.get_product_image(180,100), class: "img-fluid"%>
+                <% end %>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">
+                    <%= product.name %>
+                  </li>
+                  <li class="list-group-item">
+                    <i class="fas fa-yen-sign"></i> <%= product.price %>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          <% end %>
         </div>
       </div>
     </div>
   </div>
 </div>
+
 
 
  <%= paginate @products %>
