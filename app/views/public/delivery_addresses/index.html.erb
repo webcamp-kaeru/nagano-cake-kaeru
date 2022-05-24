@@ -44,7 +44,7 @@
 
   <div class="row mt-4">
     <div class="col-md-8 offset-md-4">
-      <table class="table">
+      <table class="table table-bordered">
         <thead class="thead-light">
           <tr>
             <th>郵便番号</th>
@@ -59,8 +59,8 @@
             <td><%= delivery_address.postal_code %></td>
             <td><%= delivery_address.address %></td>
             <td><%= delivery_address.shipping_name %></td>
-            <td>
-              <%= link_to edit_delivery_address_path(delivery_address), class: "btn btn-outline-success" do %>
+            <td class="d-flex justify-content-center">
+              <%= link_to edit_delivery_address_path(delivery_address), class: "btn btn-outline-success mr-2" do %>
                 <i class="fas fa-cog"></i>
               <% end %>
               <%= link_to delivery_address_path(delivery_address),method: :delete, class: "btn btn-outline-danger", data: { confirm: '本当に削除しますか？' } do %>
