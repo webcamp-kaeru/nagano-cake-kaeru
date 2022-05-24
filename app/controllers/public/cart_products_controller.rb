@@ -22,7 +22,7 @@ class Public::CartProductsController < ApplicationController
       redirect_to cart_products_path
     else
       flash[:alert] = "個数を選択してください"
-      redirect_to cart_products_path
+      redirect_back fallback_location: root_path
     end
   end
 
