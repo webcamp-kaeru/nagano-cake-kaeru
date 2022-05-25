@@ -9,7 +9,7 @@ class Product < ApplicationRecord
   validates :text,presence:true,length:{maximum:200}
   validates :genre_id,presence:true
   validates :price,presence:true
-  validates :sales_status,presence:true
+  validates :sales_status, inclusion: {in: [true, false]}
 
 
 
