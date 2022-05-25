@@ -1,23 +1,43 @@
-<h1><%= @member.last_name %><%= @member.first_name %>さんの会員情報編集</h1>
-
+<div class = "container">
+  <div class = "row my-5">
+    <div class = "col-5">
+      <h4 class = "w-auto h-75 p-2 text-center" style="background-color: #eee;"><%= @member.last_name %><%= @member.first_name %>さんの会員情報編集</h4>
+    </div>
+  </div>
+  
+<%= render "layouts/error", obj: @member %>
 <%= form_with model:@member, url: admin_member_path(@member.id), method: :patch do |f| %>
-<%= render "layouts/error" obj: f %>
-<table>
-<tr>
- <th>会員ID</th>
- <td><%= @member.id %></td>
-</tr>
-<%= render "public/members/member-info", f: f %>
-<tr>
-  <th>会員ステータス</th>
-  <td>
-    <%= f.radio_button :is_deleted, false %>
-    <%= f.label :is_deleted, "有効", value: false %>
-    <%= f.radio_button :is_deleted, true %>
-    <%= f.label :is_deleted, "退会", value: true %>
-  </td>
-</tr>
-</table>
-<%= f.submit "変更を保存" %>
 
+  <div class = "row ml-0 mb-4">
+    <table class = "col-3">
+      <tr>
+       <th>会員ID</th>
+       <td><%= @member.id %></td>
+      </tr>
+    </table>
+  </div>
+
+<%= render "public/members/member-info", f: f %>
+
+  <div class = "row ml-0">
+    <table class = "col-4">
+      <tr>
+        <th>会員ステータス</th>
+        <td>
+          <%= f.radio_button :is_deleted, false %>
+          <%= f.label :is_deleted, "有効", value: false %>
+          <%= f.radio_button :is_deleted, true %>
+          <%= f.label :is_deleted, "退会", value: true %>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <div class = "row my-5  ml-0">
+    <div class = "col-4 offset-1 text-center">
+      <%= f.submit "変更を保存", class: "btn btn-success px-5" %>
+    </div>
+  </div>
 <% end %>
+
+</div>
