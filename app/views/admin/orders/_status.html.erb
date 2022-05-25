@@ -1,5 +1,6 @@
+<div class="col-6">
 <%= form_with model:order, url:admin_order_path(order.id) do |f| %>
- <table>
+ <table class="table table-borderless">
         <tr>
           <th>購入者</th>
           <td><%= order.member.last_name %><%= order.member.first_name %></td>
@@ -11,7 +12,7 @@
         <tr>
           <th>配送先</th>
           <td>
-            <%= order.shipping_postal_code %><br/>
+            〒<%= order.shipping_postal_code %><br/>
             <%= order.shipping_address %><br/>
             <%= order.shipping_name %>
           </td>
@@ -23,7 +24,8 @@
         <tr>
           <th>注文ステータス</th>
           <td><%= f.select :order_status, Order.order_statuses.keys.map {|k| [I18n.t("enums.order.order_status.#{k}"), k]} %>
-              <%= f.submit "更新" %></td>
+              <%= f.submit "更新", class: "btn btn-success" %></td>
         </tr>
   </table>
 <% end %>
+</div>
