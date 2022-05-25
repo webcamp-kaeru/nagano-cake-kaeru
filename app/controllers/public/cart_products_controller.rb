@@ -5,7 +5,6 @@ class Public::CartProductsController < ApplicationController
   def index
     @cart_products = current_member.cart_products
     @total_price = 0
-
   end
 
   def create

@@ -1,43 +1,78 @@
 <div class='container'>
   <div class='row'>
     <div class="offset-md-1 col-md-3">
-      <h2>商品詳細</h2>
-      <table>
-        <tr>
-          <td><%= image_tag @product.product_image %></td>
-        </tr>
-      </table>
+      <h2 class="py-4">商品詳細</h2>
     </div>
-    <div class="col-md-5 offset-md-3">
-      <table>
-        <tr>
-          <th>商品名</th>
-          <th><%= @product.name %></th>
-        </tr>
-        <tr>
-          <th>商品説明</th>
-          <th><%= @product.text %></th>
-        </tr>
-        <tr>
-          <th>ジャンル</th>
-          <th><%= @product.genre.name %></th>
-        </tr>
-        <tr>
-          <th>
-             税込価格<br/>
-            （税抜価格）
-          </th>
-          <th>
-            <%= @product.sum_of_order_price %>（<%= @product.price %>）円
-          </th>
-        </tr>
-        <tr>
-          <th>販売ステータス</th>
-          <th><%= @product.sales_status ? '販売中' : '販売停止中' %></th>
-        </tr>
+  </div>
 
-      </table>
-      <%= link_to "編集する", edit_admin_product_path(@product), class: "btn btn-outline-secondary btn-block" %>
+  <div class="row mt-3">
+    <div class="col-lg-6">
+      <div class="product-image-show">
+        <%= image_tag @product.get_product_image(475,315) %>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-lg-4 text-right">
+          <label>商品名:</label>
+        </div>
+        <div class="col-lg-8">
+          <h6><%= @product.name %></h6>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 text-right">
+          <label>商品説明:</label>
+        </div>
+        <div class="col-lg-8">
+          <h6><%= @product.text %></h6>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 text-right">
+          <label>ジャンル:</label>
+        </div>
+        <div class="col-lg-8">
+          <h6><%= @product.genre.name %></h6>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 text-right">
+          <label>
+             税込価格:<br/>
+             (税抜価格):
+          </label>
+        </div>
+        <div class="col-lg-8">
+          <h6>
+            <%= @product.sum_of_order_price %><br>
+            (<%= @product.price %>)円
+          </h6>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 text-right">
+          <label>販売ステータス:</label>
+        </div>
+        <% if @product.sales_status %>
+          <div class="col-lg-8">
+            <h6 class="text-success">販売中</h6>
+          </div>
+        <% else %>
+          <div class="col-lg-8">
+            <h6 class="text-danger">販売停止中</h6>
+          </div>
+        <% end %>
+      </div>
+
+      <%= link_to edit_admin_product_path(@product), class: "btn btn-outline-secondary btn-block mt-5" do %>
+        <i class="fas fa-cog"></i>
+      <% end %>
     </div>
   </div>
 </div>
