@@ -28,6 +28,7 @@ body {
 h1,h2,h3,h4,h5,h6 {
   font-weight: 700 !important;
   color: #000 ;
+  -webkit-text-stroke: 1px var(--header);
 }
 
 .card-effect {
@@ -51,6 +52,7 @@ h1,h2,h3,h4,h5,h6 {
   height: 150px;
   background-size: cover;
   background-position: center;
+  object-fit: cover;
 }
 
 .product-image-show {
@@ -63,6 +65,7 @@ img {
   height: 100%;
   background-size: cover;
   background-position: center;
+  object-fit: cover;
 }
 
 // ボタンのアニメーション
