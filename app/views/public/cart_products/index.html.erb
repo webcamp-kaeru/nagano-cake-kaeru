@@ -1,23 +1,20 @@
 <div class="container">
-<div class="p-3 mb-2 bg-light">
-  <div class="row my-3 text-center">
-    <div class="col-lg-4">
-      <h2 class="text-secondary">ショッピングカート</h2>
-    </div>
+  <div class="p-3 mb-2 bg-light">
+    <div class="row">
+     <h2 class="col-6 font-weight-bold">ショッピングカート</h2>
 
-    <div class="col-lg-3 offset-lg-5">
+    <div class="col-6 text-right">
        <%= link_to "カートを空にする", cart_products_destroy_all_path, method: :delete, class: "btn btn-danger" %>
     </div>
-  </div>
-
-  <table class="table">
+    </div>
+  <table class="table table-bordered">
     <thead>
-      <tr class="bg-white">
-        <th>商品名</th>
-        <th>単価(税込)</th>
-        <th>数量</th>
-        <th>小計</th>
-        <th></th>
+      <tr>
+        <th class="font-weight-bold table-secondary">商品名</th>
+        <th class="font-weight-bold table-secondary">単価(税込)</th>
+        <th class="font-weight-bold table-secondary">数量</th>
+        <th class="font-weight-bold table-secondary">小計</th>
+        <th class="font-weight-bold table-secondary"></th>
       </tr>
     </thead>
     <tbody>
@@ -46,9 +43,9 @@
     </div>
 
     <div class="col-md-3 offset-md-6">
-      <table class="table">
+      <table class="table table-bordered">
         <tr>
-          <th>合計金額</th>
+          <th class="font-weight-bold table-secondary">合計金額</th>
           <td><b><%= @total_price %>円</b></td>
         </tr>
       </table>
@@ -62,6 +59,6 @@
       <% end %>
     </div>
   </div>
-</div>
+  </div>
 </div>
 
