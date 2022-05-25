@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="p-3 mb-2 bg-light">
+  <div class="p-3 mb-2">
   <h2 class="py-3 font-weight-bold">会員情報編集</h2>
 
     <%= form_with model:@member,url: members_my_page_path, method: :patch do |f| %>
@@ -9,10 +9,12 @@
       </table>
       <div class="row">
     　<div class="col-md-3 mx-auto">
-      <%= f.submit "編集内容を保存", class: "btn btn-secondary" %>
+      <%= f.submit "編集内容を保存", class: "btn submit shadow-sm" %>
       </div>
       <div class="col-md-3 mx-auto text-center">
-      <%= link_to "退会する",  members_unsubscribe_path, class: "btn btn-danger" %>
+      <%= link_to members_unsubscribe_path, class: "btn bgleft" do  %>
+        <span>退会する</span>
+      <% end %>
       </div>
       </div>
     <% end %>

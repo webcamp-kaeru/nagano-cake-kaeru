@@ -34,7 +34,11 @@
             </td>
             <td><%= order.billing_amount %>円</td>
             <td><%= order.order_status_i18n %></td>
-            <td><%= link_to "表示する", order_path(order) %></td>
+            <td>
+              <%= link_to order_path(order), class: "btn bgleft" do %>
+                <span>表示する</span>
+              <% end %>
+            </td>
           </tr>
         <% end %>
       </tbody>

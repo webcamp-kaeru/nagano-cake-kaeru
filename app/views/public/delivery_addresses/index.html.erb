@@ -35,7 +35,7 @@
         </div>
         <div class="row mx-auto justify-content-center">
           <div class="col-md-7">
-            <%= f.submit "新規登録", class: "btn btn-outline-success btn-block" %>
+            <%= f.submit "新規登録", class: "btn submit btn-block shadow-sm" %>
           </div>
         </div>
       <% end %>
@@ -60,11 +60,11 @@
             <td><%= delivery_address.address %></td>
             <td><%= delivery_address.shipping_name %></td>
             <td class="d-flex justify-content-center">
-              <%= link_to edit_delivery_address_path(delivery_address), class: "btn btn-outline-success mr-2" do %>
-                <i class="fas fa-cog"></i>
+              <%= link_to edit_delivery_address_path(delivery_address), class: "btn bgleft mr-2 shadow-sm" do %>
+                <span><i class="fas fa-cog"></i> 編集</span>
               <% end %>
-              <%= link_to delivery_address_path(delivery_address),method: :delete, class: "btn btn-outline-danger", data: { confirm: '本当に削除しますか？' } do %>
-                <i class="fas fa-trash-alt"></i>
+              <%= link_to delivery_address_path(delivery_address),method: :delete, class: "btn bgleft shadow-sm", data: { confirm: '本当に削除しますか？' } do %>
+                <span><i class="fas fa-trash-alt"></i> 削除</span>
               <% end %>
             </td>
           </tr>
