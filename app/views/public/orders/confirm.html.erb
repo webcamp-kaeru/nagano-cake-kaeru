@@ -20,26 +20,26 @@
           <%= image_tag cart_product.product.product_image, size: '100x80' %>
           <%= cart_product.product.name %>
         </td>
-        <td class = "border-right border-dark"><%= cart_product.product.sum_of_order_price %></td>
-        <td class = "border-right border-dark"><%= cart_product.quantity %></td>
-        <td><%= cart_product.subtotal %></td>
+        <td class = "border-right border-dark"><%= cart_product.product.sum_of_order_price %>円</td>
+        <td class = "border-right border-dark"><%= cart_product.quantity %>個</td>
+        <td><%= cart_product.subtotal %>円</td>
         <% @total_price = @total_price + cart_product.subtotal %>
       </tr>
       <% end %>
     </table>
 
-    <table class = "col-2 offset-1 border border-dark">
-      <tr>
-        <td class = "w-auto border-bottom border-right border-dark" style="background-color: #eee;">送料</td>
-        <td class =  "border-bottom border-dark"><%= @order.shipping %></td>
+    <table class = "col-2 offset-2">
+      <tr class = "row ">
+        <td class = "col py-3 w-auto border-top border-bottom border-right border-left border-dark" style="background-color: #eee;">送料</td>
+        <td class =  "col py-3 border-top border-bottom border-right border-dark"><%= @order.shipping %>円</td>
       </tr>
-      <tr>
-        <td class = "w-auto border-bottom border-right border-dark" style="background-color: #eee;">商品合計</td>
-        <td class =  "border-bottom border-dark"> <%= @total_price %></td>
+      <tr class = "row">
+        <td class = "col py-3 w-auto border-bottom border-right border-left border-dark" style="background-color: #eee;">商品合計</td>
+        <td class =  "col py-3 border-bottom border-right border-dark"> <%= @total_price %>円</td>
       </tr>
-      <tr>
-        <td class = "w-auto border-bottom border-right border-dark" style="background-color: #eee;">請求金額</td>
-        <td class =  "border-bottom border-dark"><%= @billing_amount = @total_price + @order.shipping %></td>
+      <tr class = "row">
+        <td class = "col py-3 w-auto border-bottom border-right border-left border-dark" style="background-color: #eee;">請求金額</td>
+        <td class =  "col py-3 border-bottom border-right border-dark"><%= @billing_amount = @total_price + @order.shipping %>円</td>
       </tr>
     </table>
   </div>
