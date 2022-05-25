@@ -1,44 +1,27 @@
-<div class="container">
+<%= render 'layouts/error', obj: @cart_product %>
+<div class="container mt-5 mb-5">
   <div class="row">
-    <div class="col-md-3">
-      <h3>ジャンル検索</h3>
-      <%= render 'layouts/error', obj: @cart_product %>
-      <table>
-        <% @genres.each do |genre| %>
-         <tr>
-           <td><%= link_to genre.name %></td>
-         </tr>
-        <% end %>
-      </table>
+    <div class="genre-search col-md-3 mb-5">
+      <ul class="list-group">
+        <li class="list-group-item active" aria-current="true">ジャンル検索</li>
+      <% @genres.each do |genre| %>
+        <li class="list-group-item"><%= link_to genre.name %></li>
+      <% end %>
+      </ul>
     </div>
 
-    <div class="col-md-4">
-      <%= image_tag @product.get_product_image(500,300) %>
+    <div class="col-md-4 col-lg-3 mb-5">
+      <%= image_tag @product.get_product_image(300,200), class: "w-100" %>
     </div>
 
-    <div class="col-md-5">
+    <div class="col-md-5 col-lg-6 pl-md-4">
       <%= form_with model: @cart_product, url: cart_products_path, method: :post do |f| %>
-      <table>
-        <tr>
-          <td><%= @product.name %></td>
-        </tr>
-        <tr>
-          <td><%= @product.text %></td>
-        </tr>
-        <tr>
-          <td></td>
-        </tr>
-        <tr>
-           <td>￥<%= @product.sum_of_order_price %>（税込）</td>
-        </tr>
+        <h3 class="font-weight-bold mb-2"><%= @product.name %></h3>
+        <p class="mb-4"><%= @product.text %></p>
+        <p><strong class="h4">￥<%= @product.sum_of_order_price %></strong>（税込）</p>
         <%= f.hidden_field :product_id, :value => @product.id %>
-        <tr>
-          <td><%= f.select :quantity , *[1..10], { include_blank: "個数選択" } %></td>
-          <td>
-            <%= f.submit "カートに入れる" %>
-          </td>
-        </tr>
-      </table>
+        <%= f.select :quantity , *[1..10], { include_blank: "個数選択" }, class: "p-1 form-select" %>
+        <%= f.submit "カートに入れる", class: "btn btn-success ml-md-2 ml-lg-4" %>
       <% end %>
     </div>
   </div>

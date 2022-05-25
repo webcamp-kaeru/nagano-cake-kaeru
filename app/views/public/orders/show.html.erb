@@ -1,59 +1,60 @@
-<h2>注文履歴詳細</h2>
-<div class = "container">
+<div class="container">
+  <div class="p-3 mb-2 bg-light">
+  <h2 class="py-3 font-weight-bold">注文履歴詳細</h2>
   <div class = "row">
     <div class = "col-md-6">
-      <h4>注文情報</h4>
-      <table>
+      <h4 class="py-3 font-weight-bold">注文情報</h4>
+      <table class="table table-bordered">
       <tr>
-        <td>注文日</td>
+        <td class="font-weight-bold table-secondary">注文日</td>
         <td><%= @order.created_at.strftime('%Y/%m/%d') %></td>
       </tr>
       <tr>
-        <td>配送先</td>
+        <td class="font-weight-bold table-secondary">配送先</td>
         <td>
-          <%= @order.shipping_postal_code %><br/>
+         〒<%= @order.shipping_postal_code %><br/>
           <%= @order.shipping_address %><br/>
           <%= @order.shipping_name %>
         </td>
       </tr>
       <tr>
-        <td>支払方法</td>
+        <td class="font-weight-bold table-secondary">支払方法</td>
         <td><%= @order.payment_method_i18n %></td>
       </tr>
       <tr>
-        <td>ステータス</td>
+        <td class="font-weight-bold table-secondary">ステータス</td>
         <td><%= @order.order_status_i18n %></td>
       </tr>
       </table>
     </div>
     <div class = "col-md-5 offset-md-1">
-      <h4>請求情報</h4>
-      <table>
+      <h4 class="py-3 font-weight-bold">請求情報</h4>
+      <table class="table table-bordered ">
       <tr>
-        <td>商品合計</td>
+        <td class="font-weight-bold table-secondary">商品合計</td>
         <td><%= @order.sum_of_order_price %></td>
       </tr>
       <tr>
-        <td>配送料</td>
+        <td class="font-weight-bold table-secondary">配送料</td>
         <td><%= @order.shipping %></td>
       </tr>
       <tr>
-        <th>ご請求額</th>
+        <th class="font-weight-bold table-secondary">ご請求額</th>
         <th><%= @order.billing_amount %></th>
       </tr>
       </table>
     </div>
   </div>
   <div class = "row">
-    <div class = "col-md-12">
-      <h4>注文内容</h4>
-        <table>
+    <div class = "col-md-8">
+      <h4 class="py-3 font-weight-bold">注文内容</h4>
+        <table class="table table-bordered">
         <thead>
-          <tr>
-            <th>商品</th>
-            <th>単価（税込）</th>
-            <th>個数</th>
-            <th>小計</th>
+          <tr class="table-secondary">
+            <th class="font-weight-bold">商品</th>
+            <th class="font-weight-bold">単価（税込）</th>
+            <th class="font-weight-bold">個数</th>
+            <th class="font-weight-bold">小計</th>
           </tr>
         </thead>
         <tbody>
@@ -68,5 +69,6 @@
         </tbody>
         </table>
     </div>
+  </div>
   </div>
 </div>

@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).on('turbolinks:load',function () {
   $("#theTarget").skippr({
     // スライドショーの変化 ("fade" or "slide")
     transition : 'slide',
@@ -7,7 +7,7 @@ $(document).ready(function () {
     // easingの種類
     easing : 'easeOutQuart',
     // ナビゲーションの形("block" or "bubble")
-    navType : 'bubble',
+    navType : 'block',
     // 子要素の種類('div' or 'img')
     childrenElementType : 'div',
     // ナビゲーション矢印の表示(trueで表示)
@@ -21,4 +21,4 @@ $(document).ready(function () {
     // 一枚目のスライド表示時に戻る矢印を表示するかどうか(falseで非表示)
     hidePrevious : false
   });
-});
+})

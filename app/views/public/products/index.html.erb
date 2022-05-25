@@ -1,40 +1,61 @@
 <div class="container">
-  <div class="row">
-    <div class="col-md-3">
-      <h3>ジャンル検索</h3>
-      <table>
-        <% @genres.each do |genre| %>
-         <tr>
-           <th><%= link_to genre.name %></th>
-         </tr>
-        <% end %>
-      </table>
+  <div class="row mt-5">
+    <div class="col-md-2 d-flex justify-content-center mb-3">
+      <div class="dropdown">
+        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenu2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          ジャンル検索
+        </button>
+        <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+          <% @genres.each do |genre| %>
+            <button class="dropdown-item text-dark" type="button">
+              <%= link_to genre.name, products_path, class: "text-dark" %>
+            </button>
+          <% end %>
+        </div>
+      </div>
     </div>
 
-    <div class="col-md-9">
-      <h1>商品一覧（全<%= @products_count %>件）</h1>
-      <table>
-        <tbody>
+    <div class="col-md-10">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center mb-5">
+            <h2>商品一覧</h2>
+            <p class="m-0 text-center pt-2">(全<%= @products_count %>件)</p>
+          </div>
+        </div>
+
+        <div class="row d-flex flex-wrap">
           <% @products.each do |product| %>
-           <tr>
-             <td>
-               <%= link_to(product) do %>
-               <%= image_tag product.get_product_image(300,100) %>
-               <% end %>
-             </td>
-           </tr>
-           <tr>
-             <td><%= product.name %></td>
-           </tr>
-           <tr>
-             <td>￥<%= product.price %></td>
-           </tr>
+            <div class="col-lg-4 col-sm-6 mb-5">
+              <div class="product-image-text card-effect mx-auto text-center">
+                <div class="product-image-box">
+                  <%= link_to product_path(product) do %>
+                    <%= image_tag product.product_image, class: "product-image" %>
+                  <% end %>
+                </div>
+                <div class="product-name my-2">
+                  <%= product.name %>
+                </div>
+                <div class="product-price">
+                  <label>¥</label>
+                  <%= product.price %>
+                </div>
+              </div>
+            </div>
           <% end %>
-        </tbody>
-      </table>
+        </div>
+
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center">
+            <%= paginate @products %>
+          </div>
+        </div>
+
+      </div>
     </div>
   </div>
 </div>
 
 
- <%= paginate @products %>
+
+
