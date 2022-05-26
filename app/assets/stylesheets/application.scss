@@ -21,6 +21,15 @@ body {
   color: var(--text-color) !important;
 }
 
+.navbar-brand {
+  font-weight: 700;
+  -webkit-text-stroke: 1px var(--accent);
+}
+
+.fa-birthday-cake {
+  color: red;
+}
+
 .nav-link {
   color: var(--text-color) !important;
 }
