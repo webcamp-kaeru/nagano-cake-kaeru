@@ -19,9 +19,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-6">
-            <div class="product-image-show">
-              <%= image_tag @product.get_product_image(475,315) %>
-            </div>
+            <%= image_tag @product.product_image, class: "product-image-show" %>
           </div>
           <div class="col-lg-6 my-auto">
             <div class="row mt-3">
