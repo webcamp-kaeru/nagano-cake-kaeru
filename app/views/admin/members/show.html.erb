@@ -1,6 +1,6 @@
 <div class="container">
-  <div class="w-50 d-flex align-items-center justify-content-center my-5 ml-5", style=" background-color: #eee;">
-    <span class="font-weight-bold h4"><%= @member.last_name %><%= @member.first_name %>さんの会員詳細</span>
+  <div class="w-50 d-flex align-items-center justify-content-center my-5 ml-5">
+    <h2 class="font-weight-bold"><%= @member.last_name %><%= @member.first_name %>さんの会員詳細</span>
   </div>
   <div class="row">
     <div class="col-sm-11 offset-md-1">
@@ -46,8 +46,16 @@
         <tr>
           <th></th>
           <td>
-            <%= link_to "編集する",  edit_admin_member_path(@member), class: "btn btn-success mr-5" %>
-            <%= link_to "注文履歴一覧を見る", admin_root_path, class: "btn btn-primary" %>
+            <%= link_to edit_admin_member_path(@member), class: "btn bgleft mr-5" do %>
+              <span>
+                <i class="fas fa-cog"></i> 編集する
+              </span>
+            <% end %>
+            <%= link_to admin_root_path, class: "btn bgleft" do %>
+              <span>
+                <i class="far fa-eye"></i> 注文履歴一覧
+              </span>
+            <% end %>
           </td>
         </tr>
       </table>

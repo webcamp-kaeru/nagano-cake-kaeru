@@ -23,8 +23,14 @@
         </tr>
         <tr>
           <th>注文ステータス</th>
-          <td><%= f.select :order_status, Order.order_statuses.keys.map {|k| [I18n.t("enums.order.order_status.#{k}"), k]} %>
-              <%= f.submit "更新", class: "btn btn-success" %></td>
+          <td>
+            <%= f.select :order_status, Order.order_statuses.keys.map {|k| [I18n.t("enums.order.order_status.#{k}"), k]} %>
+            <%= button_tag(type: "submit", class: "btn bgleft btn-sm shadow-sm ml-2") do %>
+              <span>
+                 <i class="fas fa-cog"></i> 更新
+              </span>
+            <% end %>
+          </td>
         </tr>
   </table>
 <% end %>

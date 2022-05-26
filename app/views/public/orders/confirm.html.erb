@@ -17,7 +17,7 @@
       <% @cart_products.each do |cart_product| %>
       <tr class =  "border-bottom border-dark">
         <td class = "border-right border-dark">
-          <%= image_tag cart_product.product.product_image, size: '100x80' %>
+          <%= image_tag cart_product.product.product_image, class: "small-product-image" %>
           <%= cart_product.product.name %>
         </td>
         <td class = "border-right border-dark"><%= cart_product.product.sum_of_order_price %>円</td>
@@ -75,7 +75,9 @@
         <%= f.hidden_field :payment_method %>
         <%= f.hidden_field :order_status, value: Order.order_statuses.key(0) %>
         <%= f.hidden_field :billing_amount, value:  @billing_amount %>
-        <%= f.submit "注文を確定する", class: "btn btn-success px-5" %>
+        <%= button_tag(type: "submit", class: "btn bgleft btn-sm shadow-sm ml-2") do %>
+          <span>注文を確定する</span>
+        <% end %>
       <% end %>
     </div>
   </div>

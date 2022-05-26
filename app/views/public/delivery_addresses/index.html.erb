@@ -35,7 +35,9 @@
         </div>
         <div class="row mx-auto justify-content-center">
           <div class="col-md-7">
-            <%= f.submit "新規登録", class: "btn submit btn-block shadow-sm" %>
+            <%= button_tag(type: "submit", class: "btn bgleft shadow-sm ml-2") do %>
+              <span>新規登録</span>
+            <% end %>
           </div>
         </div>
       <% end %>

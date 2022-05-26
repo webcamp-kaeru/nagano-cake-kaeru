@@ -1,10 +1,10 @@
 <div class = "container">
   <div class = "row my-5">
     <div class = "col-5">
-      <h4 class = "w-auto h-75 p-2 text-center" style="background-color: #eee;"><%= @member.last_name %><%= @member.first_name %>さんの会員情報編集</h4>
+      <h2 class = "w-auto h-75 p-2 text-center"><%= @member.last_name %><%= @member.first_name %>さんの会員情報編集</h4>
     </div>
   </div>
-  
+
 <%= render "layouts/error", obj: @member %>
 <%= form_with model:@member, url: admin_member_path(@member.id), method: :patch do |f| %>
 
@@ -35,7 +35,11 @@
 
   <div class = "row my-5  ml-0">
     <div class = "col-4 offset-1 text-center">
-      <%= f.submit "変更を保存", class: "btn btn-success px-5" %>
+      <%= button_tag(type: "submit", class: "btn bgleft btn-sm shadow-sm ml-2") do %>
+        <span>
+          <i class="fas fa-save"></i> 変更を保存
+        </span>
+      <% end %>
     </div>
   </div>
 <% end %>
