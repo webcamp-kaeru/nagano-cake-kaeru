@@ -7,11 +7,10 @@
 
     <div class="col-lg-3 offset-lg-5">
        <%= link_to cart_products_destroy_all_path, method: :delete, class: "btn bgleft shadow-sm" do %>
-         <span>カートを空にする</span>
+         <span><i class="far fa-trash-alt"></i> カートを空にする</span>
        <% end %>
-
     </div>
-    </div>
+  </div>
   <table class="table table-bordered">
     <thead>
       <tr>
@@ -32,13 +31,15 @@
           <td>
             <%= form_with model: cart_product, url: cart_product_path(cart_product), method: :patch do |f| %>
               <%= f.select :quantity , *[1..10] %>個
-              <%= f.submit "変更", class: "btn submit btn-sm shadow-sm" %>
+              <%= button_tag(type: "submit", class: "btn bgleft btn-sm shadow-sm ml-2") do %>
+                <span>変更</span>
+              <% end %>
             <% end %>
           </td>
           <td><%= cart_product.subtotal %>円</td>
           <td>
             <%= link_to cart_product_path(cart_product), method: :delete, class: "btn bgleft shadow-sm" do %>
-              <span>削除する</span>
+              <span><i class="fas fa-trash-alt"></i> 削除</span>
             <% end %>
           </td>
         </tr>
@@ -49,7 +50,7 @@
   <div class="row">
     <div class="col-md-3 text-center mb-4">
       <%= link_to products_path, class: "btn bgleft shadow-sm" do %>
-        <span>買い物を続ける</span>
+        <span><i class="fas fa-shopping-cart"></i> 買い物を続ける</span>
       <% end %>
     </div>
 
@@ -67,7 +68,7 @@
     <div class="col-md-3 mx-auto text-center">
       <% if @cart_products.exists? %>
         <%= link_to new_order_path, class: "btn bgleft shadow-sm" do %>
-          <span>情報入力に進む</span>
+          <span><i class="fas fa-pen"></i> 情報入力に進む</span>
         <% end %>
       <% end %>
     </div>

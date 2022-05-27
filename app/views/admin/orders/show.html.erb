@@ -1,11 +1,11 @@
 <div class="container">
-  <div class="p-3 mb-2 bg-light">
+  <div class="p-3 mb-2">
   <h2 class="py-3 font-weight-bold">注文履歴詳細</h2>
      <%= render 'admin/orders/status' ,order: @order %>
 
     <div class="row">
       <div class="col-8 align-self-start">
-      <table class="table table-bordered ">
+      <table class="table table-bordered">
         <tr>
         　<th class="font-weight-bold table-secondary">商品名</th>
         　<th class="font-weight-bold table-secondary">単価(税込)</th>
@@ -13,7 +13,7 @@
         　<th class="font-weight-bold table-secondary">小計</th>
         　<th class="font-weight-bold table-secondary">製作ステータス</th>
         </tr>
-      <tbody class="p-3 mb-2 bg-white">
+      <tbody class="p-3 mb-2">
       <% @order_products.each do |order_product| %>
       <tr>
         <td><%= order_product.product.name %></td>
@@ -23,7 +23,11 @@
         <td>
             <%= form_with model:[@order,order_product],url:admin_order_order_product_path(@order,order_product),remote: :true do |f| %>
               <%= f.select :product_status, OrderProduct.product_statuses.keys.map {|k| [I18n.t("enums.order_product.product_status.#{k}"), k]} %>
-              <%= f.submit "更新", class: "btn btn-success" %>
+              <%= button_tag(type: "submit", class: "btn bgleft btn-sm shadow-sm ml-2") do %>
+                <span>
+                  <i class="fas fa-cog"></i> 更新
+                </span>
+              <% end %>
             <% end %>
         </td>
       </tr>

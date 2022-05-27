@@ -25,7 +25,11 @@
     </div>
     </div>
     <div class="col-md-5 text-center">
-    <%= f.submit "変更内容を保存", class: "btn submit shadow-sm"%>
+    　<%= button_tag(type: "submit", class: "btn bgleft shadow-sm ml-2") do %>
+        <span>
+          <i class="fas fa-save"></i> 変更を保存
+        </span>
+      <% end %>
     </div>
   <% end %>
   </div>

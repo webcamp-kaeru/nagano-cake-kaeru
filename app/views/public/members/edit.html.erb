@@ -7,13 +7,15 @@
       <table>
         <%= render "public/members/member-info", f: f %>
       </table>
-      <div class="row">
+      <div class="row mt-2">
     　<div class="col-md-3 mx-auto">
-      <%= f.submit "編集内容を保存", class: "btn submit shadow-sm" %>
+      <%= link_to members_my_page_edit_path, class: "btn bgleft pl-3 pr-3" do %>
+        <span><i class="fas fa-save"></i> 編集内容を保存</span>
+      <% end %>
       </div>
       <div class="col-md-3 mx-auto text-center">
       <%= link_to members_unsubscribe_path, class: "btn bgleft" do  %>
-        <span>退会する</span>
+        <span><i class="fas fa-sign-out-alt"></i> 退会する</span>
       <% end %>
       </div>
       </div>
