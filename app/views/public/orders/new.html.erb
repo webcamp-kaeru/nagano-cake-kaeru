@@ -73,7 +73,9 @@
 
   <div class = "row my-5">
     <div class = "offset-5">
-      <%= f.submit "確認画面に進む", class: "btn submit px-5 justify-content-center shadow-sm" %>
+      <%= button_tag(type: "submit", class: "btn bgleft shadow-sm ml-2") do %>
+        <span>確認画面へ進む</span>
+      <% end %>
     </div>
   </div>
   <% end %>

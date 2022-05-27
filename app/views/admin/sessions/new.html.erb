@@ -2,7 +2,7 @@
   <div class = "row">
     <div class = "col-5 ">
       <div class="mt-5" >
-        <h2 class = "w-auto p-2 text-center" style="background-color: #eee;">管理者ログイン</h2>
+        <h2 class = "w-auto p-2 text-center">管理者ログイン</h2>
       </div>
     </div>
   </div>
@@ -25,10 +25,12 @@
 
 
   <div class = "row">
-    <div class = "col offset-4 mt-5 ">
-      <div class="actions">
-       <%= f.submit "ログイン", class: "btn btn-primary px-5 justify-content-center" %>
-      </div>
+    <div class = "col offset-4 mt-4 ">
+       <%= button_tag(type: "submit", class: "btn bgleft shadow-sm") do %>
+         <span>
+           <i class="fas fa-sign-in-alt"></i> ログイン
+         </span>
+       <% end %>
     </div>
   </div>
 
@@ -37,3 +39,4 @@
 <%= render "admin/shared/links" %>
 
 </div>
+
