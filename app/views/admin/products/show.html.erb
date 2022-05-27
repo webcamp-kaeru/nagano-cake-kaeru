@@ -1,0 +1,82 @@
+<div class='container'>
+  <div class='row'>
+    <div class="offset-md-1 col-md-3">
+      <h2 class="py-4">商品詳細</h2>
+    </div>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-lg-6">
+      <div class="product-image-show">
+        <%= image_tag @product.get_product_image(475,315) %>
+      </div>
+    </div>
+
+    <div class="col-lg-6">
+      <div class="row">
+        <div class="col-lg-4 text-right">
+          <label>商品名:</label>
+        </div>
+        <div class="col-lg-8">
+          <p><%= @product.name %></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 text-right">
+          <label>商品説明:</label>
+        </div>
+        <div class="col-lg-8">
+          <p><%= @product.text %></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 text-right">
+          <label>ジャンル:</label>
+        </div>
+        <div class="col-lg-8">
+          <p><%= @product.genre.name %></p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 text-right">
+          <label>
+             税込価格:<br/>
+             (税抜価格):
+          </label>
+        </div>
+        <div class="col-lg-8">
+          <p>
+            <%= @product.sum_of_order_price %><br>
+            (<%= @product.price %>)円
+          </p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4 text-right">
+          <label>販売ステータス:</label>
+        </div>
+        <% if @product.sales_status %>
+          <div class="col-lg-8">
+            <p class="text-success">販売中</p>
+          </div>
+        <% else %>
+          <div class="col-lg-8">
+            <p class="text-danger">販売停止中</p>
+          </div>
+        <% end %>
+      </div>
+
+　　　<div class="row justify-content-center m-0">
+　　　  <div class="col-lg-8">
+　　　    <%= link_to edit_admin_product_path(@product), class: "btn btn-block bgleft " do %>
+            <span><i class="fas fa-cog"></i> 編集する</span>
+          <% end %>
+　　　  </div>
+　　　</div>
+    </div>
+  </div>
+</div>

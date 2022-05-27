@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Julius+Sans+One&display=swap');
+@import "skippr";
+@import "public/homes";
+
+:root {
+  --box-shadow: 0 8px 22px rgba(0,0,0,0.2);
+  --accent: #d1ae15;
+  --body: #f5f3f2;
+  --header: #e7be99;
+  --text-color: #696969;
+}
+
+body {
+  font-family: 'Julius Sans One', sans-serif;
+  background: var(--body) !important;
+  color: var(--text-color) !important;
+}
+
+.navbar {
+  background: var(--header) !important;
+  color: var(--text-color) !important;
+}
+
+.navbar-brand {
+  font-weight: 700;
+  -webkit-text-stroke: 1px var(--accent);
+}
+
+.fa-birthday-cake {
+  color: red;
+}
+
+.nav-link {
+  color: var(--text-color) !important;
+}
+
+h1,h2,h3,h4,h5,h6 {
+  font-weight: 700 !important;
+  color: #000 ;
+  -webkit-text-stroke: 1px var(--header);
+}
+
+// カードの影//
+.card-effect {
+  box-shadow: var(--box-shadow);
+  background-color: #fff;
+  transition: all 0.35s ease;
+}
+
+.card-effect:hover {
+  box-shadow: none;
+  transform: translateY(5px);
+}
+
+.product-image-text {
+  height: auto;
+  width: 250px;
+}
+
+.product-image {
+  width: 250px;
+  height: 150px;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+
+.product-image-show {
+  width: 100%;
+  height: 315px;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+
+.small-product-image {
+  width: 100px;
+  height: 80px;
+  background-size: cover;
+  background-position: center;
+  object-fit: cover;
+}
+
+// ボタンのアニメーション//
+.btn{
+    position: relative !important;
+    overflow: hidden !important;
+    text-decoration: none !important;
+    display: inline-block !important;
+    border: 1px solid var(--accent) !important;
+    padding: 10px 20px !important;
+    text-align: center !important;
+    outline: none !important;
+    transition: ease .2s !important;
+    background-color: var(--accent) !important;
+}
+
+.btn span {
+  position: relative;
+  z-index: 3;
+  color: #fff;
+}
+
+.btn:hover span{
+  color:var(--accent) !important;
+}
+
+.bgleft:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 2;
+  background: var(--body);
+  width: 100%;
+  height: 100%;
+  transition: transform .6s cubic-bezier(0.8, 0, 0.2, 1) 0s;
+  transform: scale(0, 1);
+  transform-origin: right top;
+}
+
+.bgleft:hover:before{
+  transform-origin:left top;
+  transform:scale(1, 1);
+}
+
+// submitボタン//
+.submit {
+  border: 1px solid var(--accent) !important;
+  background: var(--body) !important;
+  color: var(--accent) !important;
+}
+
+.page-item.active .page-link {
+  background-color: var(--accent) !important;
+  border-color: var(--header) !important;
+}
+
+.badge-primary {
+  background-color: var(--accent) !important;
+  border: 1px solid var(--accent) !important;
+}
+
+.badge-primary span:hover {
+  color: var(--accent);
+}
+
+.badge-primary:hover {
+  background-color: var(--body) !important;
+}
+
+.badge-secondary {
+  background-color: var(--accent) !important;
+}
+
+.iconbox {
+  width: 40px;
+  height: 40px;
+  background-color: var(--accent);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 1px solid var(--accent);
+  border-radius: 100%;
+}
+
+.iconbox:hover {
+  background-color: var(--body);
+}
+
+.fa-plus {
+  font-size: 23px;
+  color: var(--body) !important;
+}
+
+.fa-plus:hover {
+  color: var(--accent) !important;
+}
+

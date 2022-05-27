@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="p-3 mb-2">
+  <h2 class="py-3 font-weight-bold">会員情報編集</h2>
+
+    <%= form_with model:@member,url: members_my_page_path, method: :patch do |f| %>
+     <%= render "layouts/error", obj: @member %>
+      <table>
+        <%= render "public/members/member-info", f: f %>
+      </table>
+      <div class="row mt-2">
+    　<div class="col-md-3 mx-auto">
+      <%= button_tag(type: "submit", class: "btn bgleft btn-sm shadow-sm ml-2") do %>
+        <span>
+          <i class="fas fa-save"></i> 変更内容を保存
+        </span>
+      <% end %>
+      </div>
+      <div class="col-md-3 mx-auto text-center">
+      <%= link_to members_unsubscribe_path, class: "btn bgleft" do  %>
+        <span><i class="fas fa-sign-out-alt"></i> 退会する</span>
+      <% end %>
+      </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+
+

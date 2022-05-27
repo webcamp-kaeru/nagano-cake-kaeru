@@ -1,0 +1,37 @@
+<div class="col-6">
+<%= form_with model:order, url:admin_order_path(order.id) do |f| %>
+ <table class="table table-borderless">
+        <tr>
+          <th>購入者</th>
+          <td><%= order.member.last_name %><%= order.member.first_name %></td>
+        </tr>
+        <tr>
+          <th>注文日</th>
+          <td><%= order.created_at.strftime('%Y/%m/%d') %></td>
+        </tr>
+        <tr>
+          <th>配送先</th>
+          <td>
+            〒<%= order.shipping_postal_code %><br/>
+            <%= order.shipping_address %><br/>
+            <%= order.shipping_name %>
+          </td>
+        </tr>
+        <tr>
+          <th>支払い方法</th>
+          <td><%= order.payment_method_i18n %></td>
+        </tr>
+        <tr>
+          <th>注文ステータス</th>
+          <td>
+            <%= f.select :order_status, Order.order_statuses.keys.map {|k| [I18n.t("enums.order.order_status.#{k}"), k]} %>
+            <%= button_tag(type: "submit", class: "btn bgleft btn-sm shadow-sm ml-2") do %>
+              <span>
+                 <i class="fas fa-cog"></i> 更新
+              </span>
+            <% end %>
+          </td>
+        </tr>
+  </table>
+<% end %>
+</div>

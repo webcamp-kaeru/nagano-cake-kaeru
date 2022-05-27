@@ -1,0 +1,66 @@
+.image1 {
+  background-image: url(nagano-top1.jpg);
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.image2 {
+  background-image: url(nagano-top2.jpg);
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.image3 {
+  background-image: url(nagano-top3.jpg);
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.image4 {
+  background-image: url(nagano-top4.jpg);
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.image5 {
+  background-image: url(nagano-top5.jpg);
+  height: 600px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#tall {
+  height: 600px;
+  position: relative;
+}
+
+.top-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  -webkit-transform: translate(-50%, -50%);
+  -ms-transform: translate(-50%, -50%);
+  background-color: rgba(128,128,128,0.3);
+  color: #fff;
+  font-weight: 550;
+  font-size: 20px;
+  -webkit-text-stroke: 0.5px #000;
+}
+
+#tallabout {
+  height: 440px;
+}
+
+// Place all the styles related to the public/homes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/

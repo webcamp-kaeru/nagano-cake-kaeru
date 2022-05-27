@@ -1,0 +1,27 @@
+<div class = "container">
+  <div class = "row">
+    <div class = "col-3 offset-1 my-5">
+      <h4 class = "w-auto h-75 p-2 text-center">ジャンル編集</h4>
+    </div>
+  </div>
+
+  <%= form_with model: @genre, url:admin_genre_path(@genre) do |f| %>
+  <div class = "row">
+  <%= render 'layouts/error', obj: @genre %>
+    <div class = "col-2">
+      <%= f.label :name, "ジャンル名" %>
+    </div>
+    <div class = "col-4">
+      <%= f.text_field :name, class: "form-control" %>
+    </div>
+    <div class = "col-3">
+      <%= button_tag(type: "submit", class: "btn bgleft btn-sm shadow-sm ml-2") do %>
+        <span>
+          <i class="fas fa-save"></i> 保存する
+        </span>
+      <% end %>
+  </div>
+  <% end %>
+
+
+</div>

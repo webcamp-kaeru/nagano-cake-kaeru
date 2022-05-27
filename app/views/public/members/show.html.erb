@@ -1,0 +1,69 @@
+<div class="container">
+
+  <div class="row my-3 text-center">
+    <div class="col-lg-4 mt-3">
+      <h2>マイページ</h2>
+    </div>
+  </div>
+
+  <div style=" width: 600px;">
+    <table class="table table-borderless">
+      <tr>
+        <td scope="col" style="width: 20%"><span class="font-weight-bold h6">登録情報</span></td>
+        <td scope="col" style="width: 80%">
+          <%= link_to members_my_page_edit_path, class: "btn bgleft btn-sm pl-3 pr-3" do %>
+            <span><i class="fas fa-cog"></i> 編集する</span>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+
+    <table class="table table-bordered">
+      <tr>
+        <td scope="col" style="width: 30%" class="table-secondary">氏名</td>
+        <td scope="col" style="width: 70%"><%= current_member.last_name %> <%= current_member.first_name %></td>
+      </tr>
+      <tr>
+        <td class="table-secondary">カナ</td>
+        <td><%= current_member.last_name_kana %> <%= current_member.first_name_kana %></td>
+      </tr>
+      <tr>
+        <td class="table-secondary">郵便番号</td>
+        <td><%= current_member.postal_code %></td>
+      </tr>
+      <tr>
+        <td class="table-secondary">住所</td>
+        <td><%= current_member.address %></td>
+      </tr>
+      <tr>
+        <td class="table-secondary">電話番号</td>
+        <td><%= current_member.phone_number %></td>
+      </tr>
+      <tr>
+        <td class="table-secondary">メールアドレス</td>
+        <td><%= current_member.email %></td>
+      </tr>
+    </table>
+
+  <div class="mt-4">
+    <table class="table table-borderless">
+      <tr>
+        <td scope="col" style="width: 20%"><span class="font-weight-bold h6">配送先</span></td>
+        <td scope="col" style="width: 80%">
+          <%= link_to delivery_addresses_path, class: "btn bgleft btn-sm pl-3 pr-3" do %>
+            <span><i class="fas fa-eye"></i> 一覧を見る</span>
+          <% end %>
+        </td>
+      </tr>
+      <tr>
+        <td scope="col" style="width: 20%"><span class="font-weight-bold h6">注文履歴</span></td>
+        <td scope="col" style="width: 80%">
+          <%= link_to orders_path, class: "btn bgleft btn-sm pl-3 pr-3" do %>
+            <span><i class="fas fa-eye"></i> 一覧を見る</span>
+          <% end %>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+</div>

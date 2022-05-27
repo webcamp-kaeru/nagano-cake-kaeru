@@ -1,0 +1,64 @@
+<div class="container">
+  <div class="w-25 d-flex align-items-center justify-content-center my-5 ml-5">
+    <h2 class="font-weight-bold">商品編集</span>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-10 offset-md-2">
+
+    <%= form_with model: [:admin, @product], local:true do |f| %>
+    <%= render 'layouts/error', obj: @product %>
+    <div class="form-group row">
+      <%= f.label :image, "商品画像", class: "col-md-2 col-form-label" %>
+      <div class="col-md-10">
+      <%= f.file_field :product_image, accept: 'image/*', class: "form-control-plaintext" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :name, "商品名", class: "col-md-2 col-form-label" %>
+      <div class="col-md-5">
+        <%= f.text_field :name, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :text, "商品説明", class: "col-md-2 col-form-label" %>
+      <div class="col-md-5">
+        <%= f.text_area :text, rows: 6, class: "form-control" %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :genre, "ジャンル", class: "col-md-2 col-form-label" %>
+      <div class="col-md-5">
+        <%= f.collection_select(:genre_id, @genres, :id, :name, {prompt: "選択してください"}, {class: "form-control"}) %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :price, "税抜価格", class: "col-md-2 col-form-label" %>
+      <div class="col-auto d-flex flex-row">
+        <%= f.text_field :price, class: "form-control" %><span class="my-auto ml-2">円</span>
+      </div>
+    </div>
+    <div class="form-group row">
+      <%= f.label :sales_status, "販売ステータス", class: "col-md-2 col-form-label" %>
+      <div class="col-md-10 my-2">
+        <%= f.radio_button :sales_status, true %>
+        <%= f.label :sales_status, "販売中", value: true, class: "mr-3" %>
+        <%= f.radio_button :sales_status, false %>
+        <%= f.label :sales_status, "販売停止中", value: false %>
+      </div>
+    </div>
+    <div class="form-group row">
+      <div class="col-5 offset-2">
+        <%= button_tag(type: "submit", class: "btn bgleft btn-sm shadow-sm ml-2") do %>
+          <span>
+           <i class="fas fa-save"></i> 変更を保存
+          </span>
+        <% end %>
+      </div>
+    </div>
+
+    <% end %>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="container">
+<div class="p-3 mb-2">
+  <div class="row my-3 text-center">
+    <div class="col-lg-4">
+      <h2>ショッピングカート</h2>
+    </div>
+
+    <div class="col-lg-3 offset-lg-5">
+       <%= link_to cart_products_destroy_all_path, method: :delete, class: "btn bgleft shadow-sm" do %>
+         <span><i class="far fa-trash-alt"></i> カートを空にする</span>
+       <% end %>
+    </div>
+  </div>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th class="font-weight-bold table-secondary">商品名</th>
+        <th class="font-weight-bold table-secondary">単価(税込)</th>
+        <th class="font-weight-bold table-secondary">数量</th>
+        <th class="font-weight-bold table-secondary">小計</th>
+        <th class="font-weight-bold table-secondary"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @cart_products.each do |cart_product| %>
+        <%= render 'layouts/error', obj: cart_product %>
+      <% @total_price = @total_price + cart_product.subtotal %>
+        <tr><div class="db-light"></div>
+          <td><%= cart_product.product.name %></td>
+          <td><%= cart_product.product.sum_of_order_price %>円</td>
+          <td>
+            <%= form_with model: cart_product, url: cart_product_path(cart_product), method: :patch do |f| %>
+              <%= f.select :quantity , *[1..10] %>個
+              <%= button_tag(type: "submit", class: "btn bgleft btn-sm shadow-sm ml-2") do %>
+                <span>変更</span>
+              <% end %>
+            <% end %>
+          </td>
+          <td><%= cart_product.subtotal %>円</td>
+          <td>
+            <%= link_to cart_product_path(cart_product), method: :delete, class: "btn bgleft shadow-sm" do %>
+              <span><i class="fas fa-trash-alt"></i> 削除</span>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+
+  <div class="row">
+    <div class="col-md-3 text-center mb-4">
+      <%= link_to products_path, class: "btn bgleft shadow-sm" do %>
+        <span><i class="fas fa-shopping-cart"></i> 買い物を続ける</span>
+      <% end %>
+    </div>
+
+    <div class="col-md-3 offset-md-6">
+      <table class="table table-bordered">
+        <tr>
+          <th class="font-weight-bold table-secondary">合計金額</th>
+          <td><b><%= @total_price %>円</b></td>
+        </tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col-md-3 mx-auto text-center">
+      <% if @cart_products.exists? %>
+        <%= link_to new_order_path, class: "btn bgleft shadow-sm" do %>
+          <span><i class="fas fa-pen"></i> 情報入力に進む</span>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+  </div>
+</div>
+
