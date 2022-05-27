@@ -3,7 +3,7 @@ class Admin::HomesController < ApplicationController
    layout 'admin/application'
 
   def top
-    @orders = Order.page(params[:page])
+    @orders = Order.page(params[:page]).order(id: :DESC)
     @total_quantity = 0
   end
 end

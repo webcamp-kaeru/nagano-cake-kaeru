@@ -6,10 +6,9 @@
   </div>
 
 
-
+  <%= form_with model:@genre, url:admin_genres_path do |f| %>
   <div class = "row mt-5">
     <div class = "col-2">
-  <%= form_with model:@genre, url:admin_genres_path do |f| %>
       <%= render 'layouts/error', obj: @genre %>
       <%= f.label :name, "ジャンル名" %>
     </div>
@@ -19,8 +18,8 @@
     <div class = "col-2">
       <%= f.submit "新規登録", class: "btn btn-success px-5" %>
     </div>
-  <% end %>
   </div>
+  <% end %>
 
   <div class = "row my-5">
     <table class = "col-4">
